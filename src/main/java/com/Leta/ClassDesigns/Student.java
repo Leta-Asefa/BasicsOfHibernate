@@ -1,18 +1,30 @@
-package com.Leta.BasicsOfHibernate;
+package com.Leta.ClassDesigns;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 
 @Entity
-public class Student {
+//@Table(name="Student_table")   // to give your own name for table
+public class Student  {
+
+
 
 	@Id
 	String id;
+	//@Column(name="fullName")   // to giver your own name for column
 	String name;
+	//@Transient			//to exclude the below field from table creation
 	String department;
 	
+	public Student() {
+		
+	}
+
 	
 	public Student(String id, String name, String department) {
 		super();
@@ -52,8 +64,9 @@ public class Student {
 	}
 
 
-	public Student() {
 	
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", department=" + department + "]";
 	}
-
 }
