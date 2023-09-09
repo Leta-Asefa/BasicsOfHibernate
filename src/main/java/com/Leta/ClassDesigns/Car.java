@@ -3,8 +3,11 @@ package com.Leta.ClassDesigns;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -13,16 +16,9 @@ public class Car {
 	@Id
 	String id;
 	String name;
-	@OneToMany
-	List<Driver> drivers= new ArrayList<>();
+	@ManyToMany(cascade = CascadeType.ALL)
+	List<Driver> drivers=new ArrayList<>();
 	
-	public Car() {}
- 
-	public Car(String id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
 
 	public List<Driver> getDrivers() {
 		return drivers;
@@ -31,6 +27,16 @@ public class Car {
 	public void setDrivers(List<Driver> drivers) {
 		this.drivers = drivers;
 	}
+
+	public Car() {}
+ 
+	public Car(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	
 
 	public String getId() {
 		return id;

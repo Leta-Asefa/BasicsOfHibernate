@@ -11,40 +11,47 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import com.Leta.ClassDesigns.Car;
+import com.Leta.ClassDesigns.Department;
 import com.Leta.ClassDesigns.Developer;
-import com.Leta.ClassDesigns.Driver;
 import com.Leta.ClassDesigns.Laptop;
+import com.Leta.ClassDesigns.Learner;
 
 public class HibernateOneToMany {
 
 	public HibernateOneToMany() {
 		
+		//if the foreign key column is null :-
+		//use learner.setDepartment instead of using department.getLearners().add(learner)
 		
-	Driver driver1=	new Driver("5","Abebe");
-	Driver driver2=		new Driver("2","Hennary");
-	Driver driver3=		new Driver("3","James");
-	Driver driver4=	new Driver("4","Navin");
+		Learner learner1= new Learner("1","Abebe");
+		Department department1=new Department("1","IT");
 		
-		Car car=new Car();
-		car.setId("7");
-		car.setName("Suzuki");
-		car.getDrivers().add(driver1);
-		car.getDrivers().add(driver2);
-		car.getDrivers().add(driver3);
-		car.getDrivers().add(driver4);
+		Learner learner2= new Learner("2","Kebede");
+		Department department2=new Department("2","CS");
+		
+		Learner learner3= new Learner("3","Teshome");
+		Department department3=new Department("3","IS");
+		
+		learner1.setDepartment(department1);
+		learner2.setDepartment(department1);
+		learner3.setDepartment(department2);
+		
+	
 	
 		Configuration config=new Configuration().configure();
-		config.addAnnotatedClass(Driver.class).addAnnotatedClass(Car.class);
+		config.addAnnotatedClass(Department.class).addAnnotatedClass(Learner.class);
 		ServiceRegistry registry=new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
 		SessionFactory factory=config.buildSessionFactory(registry);
 		Session session=factory.openSession();
 		Transaction transaction=session.beginTransaction();
-		session.save(car);
-		session.save(driver1);
-		session.save(driver2);
-		session.save(driver3);
-		session.save(driver4);
+		
+		session.save(department1);
+		session.save(learner1);
+		session.save(department2);
+		session.save(learner2);
+		session.save(department3);
+		session.save(learner3);
+		
 		transaction.commit();
 		
 		

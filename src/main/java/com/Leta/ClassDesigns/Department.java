@@ -3,39 +3,32 @@ package com.Leta.ClassDesigns;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Driver {
+public class Department {
 
 	@Id
 	String id;
 	String name;
-	@ManyToMany(mappedBy = "drivers", cascade = CascadeType.ALL)
-	List<Car> cars=new ArrayList<>();
+	@OneToMany(mappedBy = "department")
+	List<Learner> learners=new ArrayList<>();
 	
-	public Driver() {
+	public Department() {
 	}
 
-
-
-	public List<Car> getCars() {
-		return cars;
+	public List<Learner> getLearners() {
+		return learners;
 	}
 
-
-
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
+	public void setLearners(List<Learner> learners) {
+		this.learners = learners;
 	}
 
-
-
-	public Driver(String id, String name) {
+	public Department(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

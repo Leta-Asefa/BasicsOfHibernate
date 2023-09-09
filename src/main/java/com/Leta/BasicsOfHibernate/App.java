@@ -16,7 +16,29 @@ public class App
     	
     	//HibernateOneToOne fifth= new HibernateOneToOne();
     	
-    	HibernateOneToMany fifth= new HibernateOneToMany();
+    	//HibernateOneToMany fifth= new HibernateOneToMany();
+    	
+    	HibernateManyToMany sixth= new HibernateManyToMany();
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
     }
     

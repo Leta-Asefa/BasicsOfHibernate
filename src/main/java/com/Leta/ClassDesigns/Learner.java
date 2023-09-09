@@ -3,46 +3,40 @@ package com.Leta.ClassDesigns;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Driver {
+public class Learner {
 
 	@Id
 	String id;
 	String name;
-	@ManyToMany(mappedBy = "drivers", cascade = CascadeType.ALL)
-	List<Car> cars=new ArrayList<>();
+	@ManyToOne
+	Department department;
 	
-	public Driver() {
+	
+	public Department getDepartment() {
+		return department;
 	}
 
-
-
-	public List<Car> getCars() {
-		return cars;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
-
-
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
-	}
-
-
-
-	public Driver(String id, String name) {
+	public Learner() {}
+ 
+	public Learner(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
-	
 
 	
+
 	public String getId() {
 		return id;
 	}
@@ -59,12 +53,9 @@ public class Driver {
 		this.name = name;
 	}
 
-	
 	@Override
 	public String toString() {
-		return "Developer [id=" + id + ", name=" + name + ", laptop=" +  "]";
+		return "Laptop [id=" + id + ", name=" + name + "]";
 	}
 
-	
-	
 }
