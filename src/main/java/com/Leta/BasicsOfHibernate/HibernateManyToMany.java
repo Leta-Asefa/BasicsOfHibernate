@@ -30,7 +30,7 @@ public class HibernateManyToMany {
 		car1.getDrivers().add(driver1); // car 1 is driven by driver 1
 		car2.getDrivers().add(driver1); // car 2 is driven by driver 1
 		car2.getDrivers().add(driver2); // car 2 is driven by driver 2
-		
+		car3.getDrivers().add(driver4);
 		
 		Configuration config=new Configuration().configure();
 		config.addAnnotatedClass(Driver.class).addAnnotatedClass(Car.class);
