@@ -18,8 +18,9 @@ public class App
     	
     	//HibernateOneToMany fifth= new HibernateOneToMany();
     	
-    	HibernateManyToMany sixth= new HibernateManyToMany();
+    	//HibernateManyToMany sixth= new HibernateManyToMany();
     	
+    	HibernateFetchType seventh= new HibernateFetchType();
     	
     	
     	

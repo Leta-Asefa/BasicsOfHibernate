@@ -55,7 +55,7 @@ public class Learner {
 
 	@Override
 	public String toString() {
-		return "Laptop [id=" + id + ", name=" + name + "]";
+		return "Learner [id=" + id + ", name=" + name + ", department=" + department + "]";
 	}
 
 }

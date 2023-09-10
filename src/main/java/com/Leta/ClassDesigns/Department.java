@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -14,7 +15,7 @@ public class Department {
 	@Id
 	String id;
 	String name;
-	@OneToMany(mappedBy = "department")
+	@OneToMany(mappedBy = "department")//,fetch = FetchType.EAGER)
 	List<Learner> learners=new ArrayList<>();
 	
 	public Department() {
@@ -55,7 +56,7 @@ public class Department {
 	
 	@Override
 	public String toString() {
-		return "Developer [id=" + id + ", name=" + name + ", laptop=" +  "]";
+		return "Department [id=" + id + ", name=" + name  + "]";
 	}
 
 	
