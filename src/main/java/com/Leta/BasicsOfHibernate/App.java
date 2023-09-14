@@ -20,7 +20,9 @@ public class App
     	
     	//HibernateManyToMany sixth= new HibernateManyToMany();
     	
-    	HibernateFetchType seventh= new HibernateFetchType();
+    	//HibernateFetchType seventh= new HibernateFetchType();
+    	
+    	HibernateHQL eighth = new HibernateHQL();
     	
     	
     	

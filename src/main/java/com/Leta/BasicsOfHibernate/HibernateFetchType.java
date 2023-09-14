@@ -1,5 +1,7 @@
 package com.Leta.BasicsOfHibernate;
 
+import java.lang.Character.UnicodeScript;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,7 +21,7 @@ public class HibernateFetchType {
 
 	public HibernateFetchType() {
 		
-	
+		
 		Configuration config=new Configuration().configure();
 		config.addAnnotatedClass(Department.class).addAnnotatedClass(Learner.class);
 		ServiceRegistry registry=new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
@@ -27,8 +29,8 @@ public class HibernateFetchType {
 		 session=factory.openSession();
 	
 		 //addSomeDataToDB();
-		 testFetchType();
-		 displayLearner();
+		// testFetchType();
+		// displayLearner();
 
 		//Lazy Fetching Mode : will fetch from the database only when a related entities are requested 
 		//Eager Fetching Mode : will fetch the requested entity from the database  with its related entities
